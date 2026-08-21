@@ -1,0 +1,15 @@
+.tilt {
+  transform-style: preserve-3d;
+  transition: transform 700ms var(--ease);
+  will-change: transform;
+}
+
+.glare {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transition: opacity 400ms var(--ease);
+}
