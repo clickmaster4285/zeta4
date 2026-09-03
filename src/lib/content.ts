@@ -71,14 +71,7 @@ export const PRODUCTS_MENU = {
 /* ---------------- Hero ---------------- */
 
 export const HERO = {
-  overline: "Telecommunications & Digital Infrastructure",
-  /* One word per line, as set in Figma (Heading 1 is 4 × 123px tall) */
-  lines: [
-    { text: "Powering" },
-    { text: "Sovereign" },
-    { text: "Digital", accent: true },
-    { text: "Infrastructure" },
-  ],
+  typingText: "Powering Sovereign Digital Infrastructure",
   scrollCue: "Scroll through the network",
   tagline:
     "Invisible infrastructure powering visible progress—from terrestrial routes to machine intelligence.",

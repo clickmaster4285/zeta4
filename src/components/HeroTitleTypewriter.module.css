@@ -1,0 +1,70 @@
+.heroTitleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 24px;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-display, "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif);
+  font-size: clamp(38px, 6.8vw, 102px);
+  font-weight: 900;
+  line-height: 0.94;
+  letter-spacing: -0.038em;
+  color: #ffffff;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.titleLine {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.redAccent {
+  color: #d31920 !important;
+}
+
+.redAccent span {
+  color: #d31920 !important;
+}
+
+.cursor {
+  display: inline-block;
+  width: 5px;
+  height: 0.85em;
+  margin-left: 6px;
+  background-color: #d31920;
+  box-shadow: 0 0 12px #d31920, 0 0 20px rgba(211, 25, 32, 0.8);
+  vertical-align: baseline;
+  animation: cursorBlink 700ms step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .heroTitle {
+    font-size: clamp(32px, 8.5vw, 64px);
+  }
+}
+
+@media (max-width: 540px) {
+  .heroTitle {
+    font-size: clamp(28px, 9vw, 44px);
+  }
+}
