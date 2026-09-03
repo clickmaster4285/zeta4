@@ -483,7 +483,7 @@
 .about {
   position: relative;
   padding-top: clamp(96px, 12vw, 207px);
-  padding-bottom: clamp(40px, 4vw, 72px);
+  padding-bottom: clamp(40px, 9vw, 112px);
   overflow: hidden;
 }
 
