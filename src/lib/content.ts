@@ -106,7 +106,7 @@ export const ABOUT = {
   headingBefore: "A ",
   headingAccent: "premier",
   headingAfter: " solutions provider",
-  body: "Zeta Technologies delivers high-performance telecommunications backbone infrastructure, custom cloud virtualization clusters, and integrated machine intelligence layer solutions. We empower private enterprises, operators, and state agencies with fully custom digital Sovereignty.",
+  body: "As a premier solutions provider, Zeta Technologies delivers high-performance telecommunications backbone infrastructure, custom cloud virtualization clusters, and integrated machine intelligence solutions. We empower private enterprises, operators, and state agencies with fully custom digital sovereignty.",
   cta: { label: "About Zeta", href: "/contact" },
   image: { src: "/images/about-fiber.webp", alt: "Bundle of optical fibres lit red at the tips" },
 };

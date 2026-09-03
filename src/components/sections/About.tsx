@@ -7,7 +7,13 @@ export default function About() {
   return (
     <section id="about" className={`light ${styles.about}`} aria-labelledby="about-title">
       <div className={styles.aboutImage} aria-hidden="true">
-        <Image src={ABOUT.image.src} alt="" width={1600} height={933} sizes="(max-width: 900px) 100vw, 64vw" />
+        <Image
+          src="/images/homepage/aboutimage.png"
+          alt=""
+          width={1254}
+          height={1254}
+          sizes="(max-width: 900px) 72vw, 46vw"
+        />
       </div>
       <div className={`container ${styles.aboutGrid}`}>
         <div className={styles.aboutText}>
