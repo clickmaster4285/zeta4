@@ -482,17 +482,19 @@
    ===================================================================== */
 .about {
   position: relative;
-  padding-block: clamp(96px, 12vw, 207px);
+  padding-top: clamp(96px, 12vw, 207px);
+  padding-bottom: clamp(40px, 4vw, 72px);
   overflow: hidden;
 }
 
 .aboutImage {
   position: absolute;
-  top: 50%;
+  top: auto;
   right: 0;
+  bottom: 0;
   width: min(46vw, 800px);
   aspect-ratio: 1 / 1;
-  transform: translateY(-50%);
+  transform: none;
   opacity: 0.87;
   overflow: hidden;
   pointer-events: none;
@@ -541,11 +543,9 @@
   }
 
   .aboutImage {
-    top: auto;
-    bottom: -6%;
+    bottom: 0;
     width: min(72vw, 560px);
     opacity: 0.55;
-    transform: none;
   }
 }
 
