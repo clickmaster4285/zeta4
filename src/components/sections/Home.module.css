@@ -490,8 +490,8 @@
 .aboutImage {
   position: absolute;
   top: auto;
-  right: 0;
-  bottom: 0;
+  right: 32px;
+  bottom: -10px;
   width: min(46vw, 800px);
   aspect-ratio: 1 / 1;
   transform: none;
