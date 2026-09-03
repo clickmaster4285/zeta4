@@ -28,7 +28,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: max(720px, 100vh);
-  padding-top: calc(var(--header-h) + 72px);
+  padding-top: calc(var(--header-h) + 130px);
   padding-bottom: 32px;
   overflow: hidden;
   background: var(--bg);
