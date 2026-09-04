@@ -31,8 +31,32 @@
   padding-top: calc(var(--header-h) + 130px);
   padding-bottom: 32px;
   overflow: hidden;
-  background: var(--bg);
+  background-color: #020202;
+  background-image:
+    radial-gradient(circle at 78% 42%, rgba(255, 20, 20, 0.16) 0%, rgba(150, 0, 0, 0.09) 18%, rgba(60, 0, 0, 0.04) 35%, transparent 60%),
+    radial-gradient(circle at 100% 0%, rgba(255, 15, 15, 0.18) 0%, rgba(120, 0, 0, 0.08) 28%, transparent 55%),
+    radial-gradient(circle at 88% 80%, rgba(224, 0, 0, 0.12) 0%, rgba(139, 0, 0, 0.06) 30%, transparent 62%);
   isolation: isolate;
+}
+
+/* Futuristic red grid floor, faded toward the top */
+.hero::before {
+  content: "";
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: -12%;
+  height: 62%;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255, 20, 20, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 20, 20, 0.08) 1px, transparent 1px);
+  background-size: 70px 70px;
+  transform: perspective(700px) rotateX(65deg) scale(1.5);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 80%);
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.35) 45%, transparent 80%);
+  pointer-events: none;
 }
 
 .heroVideo {
@@ -46,14 +70,103 @@
   pointer-events: none;
 }
 
+/* Digital dot field, concentrated center/right, barely visible */
 .heroOverlay {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background:
-    linear-gradient(180deg, rgba(2, 6, 13, 0.35) 0%, rgba(2, 6, 13, 0.15) 45%, rgba(2, 6, 13, 0.88) 100%),
-    linear-gradient(90deg, rgba(2, 6, 13, 0.55) 0%, rgba(2, 6, 13, 0.1) 55%, rgba(2, 6, 13, 0.35) 100%);
+  background-image: radial-gradient(rgba(255, 20, 20, 0.14) 1px, transparent 1px);
+  background-size: 12px 12px;
+  -webkit-mask-image: radial-gradient(circle at 72% 45%, #000 0%, rgba(0, 0, 0, 0.4) 40%, transparent 72%);
+  mask-image: radial-gradient(circle at 72% 45%, #000 0%, rgba(0, 0, 0, 0.4) 40%, transparent 72%);
   pointer-events: none;
+}
+
+/* Red network / data-flow lines + concentrated glow behind the globe */
+.heroOverlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 16% 112%, transparent 46%, rgba(255, 30, 30, 0.32) 47%, rgba(255, 30, 30, 0.32) 47.7%, transparent 48.6%),
+    radial-gradient(circle at 16% 112%, transparent 58%, rgba(255, 0, 0, 0.18) 59%, rgba(255, 0, 0, 0.18) 59.6%, transparent 60.5%),
+    radial-gradient(circle at 94% 120%, transparent 40%, rgba(255, 30, 30, 0.28) 41%, rgba(255, 30, 30, 0.28) 41.7%, transparent 42.6%),
+    repeating-linear-gradient(115deg, transparent 0 150px, rgba(255, 0, 0, 0.1) 150px 151px, transparent 151px 300px),
+    radial-gradient(circle at 80% 44%, rgba(255, 0, 0, 0.16) 0%, rgba(224, 0, 0, 0.09) 24%, rgba(139, 0, 0, 0.05) 44%, transparent 68%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.6) 45%, transparent 88%);
+  mask-image: linear-gradient(to top, #000 0%, rgba(0, 0, 0, 0.6) 45%, transparent 88%);
+  pointer-events: none;
+}
+
+/* Glowing red particles / network nodes */
+.heroOverlay::after {
+  content: "";
+  position: absolute;
+  top: 24%;
+  left: 64%;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: #ff2222;
+  box-shadow:
+    -18vw 6vh 0 0 rgba(255, 34, 34, 0.5),
+    -30vw -8vh 0 0 rgba(255, 34, 34, 0.35),
+    -8vw 18vh 0 0 rgba(255, 34, 34, 0.45),
+    6vw 12vh 0 0 rgba(255, 34, 34, 0.4),
+    14vw -6vh 0 0 rgba(255, 34, 34, 0.5),
+    24vw 8vh 0 0 rgba(255, 34, 34, 0.3),
+    -40vw 14vh 0 0 rgba(255, 34, 34, 0.22),
+    28vw -14vh 0 0 rgba(255, 34, 34, 0.35);
+  filter: drop-shadow(0 0 6px rgba(255, 0, 0, 0.8));
+  opacity: 0.7;
+  pointer-events: none;
+  animation: particleBreathe 9s ease-in-out infinite;
+}
+
+@keyframes particleBreathe {
+  0%,
+  100% {
+    opacity: 0.55;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Black vignette: dark edges, red focus toward the globe on the right */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(to right, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.25) 35%, transparent 65%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.45) 0%, transparent 25%, transparent 75%, rgba(0, 0, 0, 0.6) 100%);
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroOverlay::after {
+    animation: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    background-image:
+      radial-gradient(circle at 80% 40%, rgba(255, 20, 20, 0.12) 0%, rgba(150, 0, 0, 0.06) 22%, transparent 58%),
+      radial-gradient(circle at 100% 0%, rgba(255, 15, 15, 0.12) 0%, rgba(120, 0, 0, 0.05) 30%, transparent 52%);
+  }
+
+  .hero::before {
+    opacity: 0.5;
+    background-size: 56px 56px;
+  }
+
+  .heroOverlay::after {
+    display: none;
+  }
 }
 
 .heroContent {
@@ -61,6 +174,68 @@
   z-index: 3;
   width: 100%;
   margin: 0;
+}
+
+/* Two-column hero: copy on the left, globe visual on the right */
+.heroRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 40%);
+  gap: clamp(32px, 4vw, 72px);
+  align-items: center;
+}
+
+/* Keep the display title inside the left column so it never collides
+   with the globe visual on the right. */
+.heroRow h1 {
+  font-size: clamp(32px, 5.2vw, 88px);
+}
+
+.heroVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1234 / 689;
+  pointer-events: none;
+}
+
+.heroVisual img {
+  object-fit: contain;
+  filter: drop-shadow(0 24px 60px rgba(2, 6, 13, 0.55));
+}
+
+@media (max-width: 1023px) {
+  .heroRow {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .heroVisual {
+    width: min(80vw, 460px);
+    margin-inline: auto;
+  }
+}
+
+/* Large desktop / XXL: the 1728px container cap makes the globe look small on
+   big monitors, so let the hero breathe wider and scale the visual with vw. */
+@media (min-width: 1600px) {
+  .hero .heroContent {
+    max-width: 100vw;
+    padding-inline: clamp(80px, 4.6vw, 160px);
+  }
+
+  .heroRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 42%);
+    gap: clamp(72px, 4vw, 120px);
+  }
+}
+
+@media (min-width: 2200px) {
+  .heroRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 44%);
+  }
+
+  .heroRow h1 {
+    font-size: clamp(88px, 4.6vw, 120px);
+  }
 }
 
 .heroTyping {
