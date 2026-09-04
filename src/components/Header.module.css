@@ -1,7 +1,30 @@
 .header {
+  --nav-line: 18px;
+  --nav-fs: var(--fs-nav);
+  --nav-gap: 41.6px;
+  --logo: 35px;
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
+}
+
+/* Scale the bar contents up on large desktop / 2XL */
+@media (min-width: 1600px) {
+  .header {
+    --nav-line: 20px;
+    --nav-fs: 13px;
+    --nav-gap: 52px;
+    --logo: 42px;
+  }
+}
+
+@media (min-width: 2200px) {
+  .header {
+    --nav-line: 22px;
+    --nav-fs: 15px;
+    --nav-gap: 64px;
+    --logo: 48px;
+  }
 }
 
 /* The frosted bar lives on a pseudo-element: a backdrop-filter on the header
@@ -35,8 +58,14 @@
 .logo {
   display: inline-flex;
   justify-self: start;
-  width: 35px;
-  height: 35px;
+  width: var(--logo);
+  height: var(--logo);
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .nav {
@@ -45,7 +74,7 @@
 
 .navList {
   display: flex;
-  gap: 41.6px;
+  gap: var(--nav-gap);
 }
 
 .navItem {
@@ -54,11 +83,11 @@
 
 .navLink {
   display: block;
-  height: 18px;
+  height: var(--nav-line);
   overflow: hidden;
   font-family: var(--font-mono);
-  font-size: var(--fs-nav);
-  line-height: 18px;
+  font-size: var(--nav-fs);
+  line-height: var(--nav-line);
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink);
@@ -71,13 +100,13 @@
 
 .roll > span {
   display: block;
-  height: 18px;
+  height: var(--nav-line);
 }
 
 .navLink:hover .roll,
 .navLink:focus-visible .roll,
 .navLink[aria-expanded="true"] .roll {
-  transform: translateY(-18px);
+  transform: translateY(calc(var(--nav-line) * -1));
 }
 
 .actions {
@@ -88,7 +117,7 @@
 }
 
 .cta {
-  min-width: 141.5px;
+  min-width: clamp(141.5px, 8.5vw, 190px);
 }
 
 .burger {

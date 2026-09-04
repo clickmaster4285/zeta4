@@ -16,12 +16,21 @@ export default function Header() {
   const headerRef = useRef<HTMLElement>(null);
   const menuId = useId();
 
-  /* Solid bar once the hero starts scrolling away */
+  /* Transparent while the bar sits over the hero; solid once scrolled past it */
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const hero = document.getElementById("hero");
+      const headerH = headerRef.current?.offsetHeight ?? 0;
+      const limit = hero ? hero.offsetTop + hero.offsetHeight - headerH : 24;
+      setScrolled(window.scrollY > limit);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
   }, []);
 
   /* Escape closes whatever is open; clicking outside closes the mega menu */

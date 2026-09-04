@@ -64,6 +64,19 @@
   }
 }
 
+/* Taller bar on large desktop / 2XL so the navbar scales with the viewport */
+@media (min-width: 1600px) {
+  :root {
+    --header-h: 108px;
+  }
+}
+
+@media (min-width: 2200px) {
+  :root {
+    --header-h: 124px;
+  }
+}
+
 /* ---------- Base ---------- */
 *,
 *::before,
